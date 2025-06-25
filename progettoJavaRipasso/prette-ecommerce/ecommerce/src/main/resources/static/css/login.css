@@ -1,0 +1,13 @@
+html{
+    box-sizing: border-box;
+}
+
+.form {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 2rem;
+    border-radius: 20px;
+    background: linear-gradient(to bottom right, #f1f1ef, #767675);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
