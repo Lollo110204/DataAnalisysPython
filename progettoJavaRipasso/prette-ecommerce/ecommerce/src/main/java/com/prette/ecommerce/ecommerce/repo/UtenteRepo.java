@@ -8,4 +8,5 @@ import com.prette.ecommerce.ecommerce.entities.Utente;
 public interface UtenteRepo extends JpaRepository<Utente,Integer> {
   
     Utente findByUsernameAndPassword(String username, String password);
+    Utente findByUsername(String username);
 }

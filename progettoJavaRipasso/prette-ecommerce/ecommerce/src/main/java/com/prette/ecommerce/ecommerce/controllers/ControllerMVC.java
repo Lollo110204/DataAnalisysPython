@@ -35,6 +35,14 @@ public class ControllerMVC {
         return "login";
     }
 
+    @GetMapping("/singUp")
+    public String singUp() {
+
+    
+        return "singUp";
+    }
+
+
     
 
 

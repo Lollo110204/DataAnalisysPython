@@ -8,6 +8,8 @@ import com.prette.ecommerce.ecommerce.entities.Utente;
 public interface UtenteService {
 
     Utente findUser(String username,String password);
+    Utente findUserName(String username);
+    Utente addUser(Utente u);
 
     
 }
