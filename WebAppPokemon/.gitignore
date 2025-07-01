@@ -1,0 +1,48 @@
+# Ambiente virtuale
+venv/
+env/
+ENV/
+
+# File Python compilati
+__pycache__/
+*.py[cod]
+*$py.class
+
+# File temporanei e log
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+*.tmp
+
+# Configurazioni locali
+.DS_Store
+.idea/
+.vscode/
+*.code-workspace
+
+# Media e static raccolti
+/media/
+/staticfiles/
+/static/
+
+# File di migrazione (opzionale, ma NON consigliato ignorarli in team)
+# *non ignorare di solito*, ma se li vuoi escludere:
+# **/migrations/*.py
+# !**/migrations/__init__.py
+
+# Secret settings (da creare localmente)
+*.env
+.env.*
+
+# Backup / archivio
+*.bak
+*.swp
+*~
+
+# File specifici di sistema operativo
+Thumbs.db
+ehthumbs.db
+desktop.ini
