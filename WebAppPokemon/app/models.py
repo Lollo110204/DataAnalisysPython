@@ -15,3 +15,6 @@ class Pokemon(db.Model):
     hp = db.Column(db.Integer)
     attack = db.Column(db.Integer)
     defense = db.Column(db.Integer)
+    speed = db.Column(db.Integer)
+    generation = db.Column(db.Integer)
+    legendary = db.Column(db.Boolean, default=False)

@@ -67,25 +67,3 @@ def pokemon_attack_media_type1():
     labels = [t for t, _ in stats]
     media = [m for _, m in stats]
     return jsonify({"labels": labels, "media": media})
-
-@api.route('/pokemon/legendary/top_stats')
-def legendary_top_stats():
-    from .models import Pokemon
-    legendaries = [p for p in Pokemon.query.all() if hasattr(p, 'legendary') and (str(p.legendary).lower() == 'true' or str(p.legendary) == 'TRUE' or str(p.legendary) == 'True' or p.name.lower() in ['mewtwo','mew','articuno','zapdos','moltres','raikou','entei','suicune','lugia','ho-oh','regirock','regice','registeel','latias','latios','kyogre','groudon','rayquaza','jirachi','deoxys','uxie','mesprit','azelf','dialga','palkia','heatran','regigigas','giratina','cresselia','phione','manaphy','darkrai','shaymin','arceus','victini','cobalion','terrakion','virizion','tornadus','thundurus','reshiram','zekrom','landorus','kyurem','keldeo','meloetta','genesect','xerneas','yveltal','zygarde','diancie','hoopa','volcanion','tapu koko','tapu lele','tapu bulu','tapu fini','cosmog','cosmoem','solgaleo','lunala','nihilego','buzzwole','pheromosa','xurkitree','celesteela','kartana','guzzlord','necrozma','magearna','marshadow','poipole','naganadel','stakataka','blacephalon','zeraora','meltan','melmetal','zacian','zamazenta','eternatus','kubfu','urshifu','zarude','regieleki','regidrago','glastrier','spectrier','calyrex'])]
-    if not legendaries:
-        return jsonify({"max_attack": None, "max_defense": None})
-    max_attack = max(legendaries, key=lambda p: p.attack)
-    max_defense = max(legendaries, key=lambda p: p.defense)
-    return jsonify({
-        "max_attack": {"name": max_attack.name, "attack": max_attack.attack, "type1": max_attack.type1, "type2": max_attack.type2},
-        "max_defense": {"name": max_defense.name, "defense": max_defense.defense, "type1": max_defense.type1, "type2": max_defense.type2}
-    })
-
-@api.route('/pokemon/legendary/type1_distribution')
-def legendary_type1_distribution():
-    from .models import Pokemon
-    from collections import Counter
-    legendaries = [p for p in Pokemon.query.all() if hasattr(p, 'legendary') and (str(p.legendary).lower() == 'true' or str(p.legendary) == 'TRUE' or str(p.legendary) == 'True' or p.name.lower() in ['mewtwo','mew','articuno','zapdos','moltres','raikou','entei','suicune','lugia','ho-oh','regirock','regice','registeel','latias','latios','kyogre','groudon','rayquaza','jirachi','deoxys','uxie','mesprit','azelf','dialga','palkia','heatran','regigigas','giratina','cresselia','phione','manaphy','darkrai','shaymin','arceus','victini','cobalion','terrakion','virizion','tornadus','thundurus','reshiram','zekrom','landorus','kyurem','keldeo','meloetta','genesect','xerneas','yveltal','zygarde','diancie','hoopa','volcanion','tapu koko','tapu lele','tapu bulu','tapu fini','cosmog','cosmoem','solgaleo','lunala','nihilego','buzzwole','pheromosa','xurkitree','celesteela','kartana','guzzlord','necrozma','magearna','marshadow','poipole','naganadel','stakataka','blacephalon','zeraora','meltan','melmetal','zacian','zamazenta','eternatus','kubfu','urshifu','zarude','regieleki','regidrago','glastrier','spectrier','calyrex'])]
-    tipi = [p.type1 for p in legendaries]
-    counter = Counter(tipi)
-    return jsonify({"labels": list(counter.keys()), "counts": list(counter.values())})

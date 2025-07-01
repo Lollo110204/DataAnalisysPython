@@ -49,11 +49,14 @@ def importa_pokemon(Pokemon):  # Accetta Pokemon come argomento
             id=int(row["number"]),
             name=row["name"],
             type1=row["type1"],
-            type2=row["type2"],
+            type2=row["type2"] if pd.notna(row["type2"]) else None,
             total=int(row["total"]),
             hp=int(row["hp"]),
             attack=int(row["attack"]),
-            defense=int(row["defense"])
+            defense=int(row["defense"]),
+            speed=int(row["speed"]) if pd.notna(row["speed"]) else None,
+            generation=int(row["generation"]) if pd.notna(row["generation"]) else None,
+            legendary=bool(row["legendary"]) if pd.notna(row["legendary"]) else False
         )
         db.session.add(p)
 
