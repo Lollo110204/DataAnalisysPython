@@ -1,7 +1,7 @@
 import sqlite3
 
 # Connessione al database
-conn = sqlite3.connect('prova.db')
+conn = sqlite3.connect('prova_esame.db')
 cursor = conn.cursor()
 
 cursor.execute('''
