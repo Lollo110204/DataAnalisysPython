@@ -6,7 +6,7 @@
 # Per aprire la console di swagger 
 - http://localhost:8080/swagger-ui/index.html
 
-#Attivazione venv Python
+# Attivazione venv Python
 - python3 -m venv nomeVenv
 - Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 - .\venv\Scripts\Activate.ps1 
