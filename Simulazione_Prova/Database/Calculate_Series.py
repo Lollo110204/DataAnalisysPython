@@ -35,6 +35,7 @@ df_occupazione = query_db(query_prova)
 
 # Calcolo della produttività totale per area geografica
 prova_calculate_series  = df_occupazione.groupby(['species','TIME_PERIOD'])['OBS_VALUE'].mean().reset_index()
+prova_calculate_series = prova_calculate_series.rename(columns={'OBS_VALUE':'media_OBS_VALUE_species'})
 
 # Inserimento dei dati calcolati nel database
 prova_calculate_series.to_sql('prova_calculate_series',conn,if_exists='replace',index=False)
