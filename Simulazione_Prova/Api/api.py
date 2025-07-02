@@ -27,5 +27,6 @@ def prova_get(da_anno:Optional[int]=None, a_anno:Optional[int]=None):
     if da_anno and a_anno:
         query += "WHERE TIME_PERIOD BETWEEN ? and ?"
         params.extend([da_anno,a_anno])
-        df = query_db(query,tuple(params))
-        return df.to_dict(orient='records')
+        
+    df = query_db(query,tuple(params))
+    return df.to_dict(orient='records')
