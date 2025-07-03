@@ -49,8 +49,6 @@ def interpolate_missing_data(df, columns):
         df[col] = df[col].interpolate(method='linear')
     return df
 
-# interpolate_missing_data(df_occupazione,['OBS_VALUE'])
-
 
 #connessione al db 
 conn = sqlite3.connect('prova_esame.db')
